@@ -16,11 +16,8 @@ services:
       - caddy
     restart: always
     volumes:
-      # - firefly_iii_upload:/var/www/html/storage/upload
       - $HOME/docker_volumes/firefly_upload:/var/www/html/storage/upload
     env_file: .env
-    # ports:
-      # - '80:8080'
     depends_on:
       - db
   db:
@@ -33,7 +30,6 @@ services:
     env_file: .db.env
     volumes:
       - $HOME/docker_volumes/firefly_db:/var/lib/mysql
-      # - firefly_iii_db:/var/lib/mysql
 
   importer:
     image: fireflyiii/data-importer:latest
@@ -43,8 +39,6 @@ services:
     networks:
       - firefly_iii
       - caddy
-    # ports:
-    #   - '81:8080'
     depends_on:
       - app
     env_file: .importer.env
