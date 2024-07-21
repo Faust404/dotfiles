@@ -1,0 +1,26 @@
+services:
+  caddy:
+    networks: 
+      - caddy
+    image: caddy:latest
+    container_name: caddy
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - $PWD/Caddyfile:/etc/caddy/Caddyfile
+      - $PWD/site:/srv
+      - caddy_data:/data
+      - caddy_config:/config
+    
+networks:
+  caddy:
+    name: caddy
+
+volumes:
+  caddy_data:
+  caddy_config:

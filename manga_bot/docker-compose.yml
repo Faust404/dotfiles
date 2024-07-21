@@ -1,0 +1,8 @@
+services:
+  manga:
+    image: index.docker.io/himavanth19/manga_bot
+    container_name: manga_bot
+    env_file:
+      - $PWD/.env
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"

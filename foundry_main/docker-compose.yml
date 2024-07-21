@@ -1,0 +1,20 @@
+services:
+  foundry:
+    image: felddy/foundryvtt:release
+    hostname: foundry_server
+    container_name: foundry_main
+    networks:
+      - caddy
+    volumes:
+      - $HOME/docker_volumes/foundry_main_data:/data
+    environment:
+      - FOUNDRY_PASSWORD=QC5S@tGgNLhv
+      - FOUNDRY_USERNAME=himavanth.reddy19@gmail.com
+      - FOUNDRY_ADMIN_KEY=hima@1997
+      - FOUNDRY_GID=1000
+      - FOUNDRY_UID=1000
+
+networks:
+  caddy:
+    name: caddy
+    external: true

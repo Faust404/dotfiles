@@ -1,0 +1,15 @@
+test.hreddy.in {
+  reverse_proxy foundry_test:30000
+}
+
+dnd.hreddy.in {
+  reverse_proxy foundry_server:30000
+}
+
+firefly.hreddy.in {
+  reverse_proxy app:8080
+}
+
+importer.hreddy.in {
+  reverse_proxy importer:8080
+}
