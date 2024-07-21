@@ -13,3 +13,7 @@ firefly.hreddy.in {
 importer.hreddy.in {
   reverse_proxy importer:8080
 }
+
+filebrowser.hreddy.in {
+  reverse_proxy filebrowser:8080
+}
