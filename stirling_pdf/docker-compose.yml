@@ -1,6 +1,7 @@
 services:
   stirling-pdf:
     image: frooodle/s-pdf:latest
+    container_name: stirling_pdf
     networks:
       - caddy
     volumes:
