@@ -25,3 +25,7 @@ stirling.hreddy.in {
 portainer.hreddy.in {
   reverse_proxy portainer:9000
 }
+
+wallos.hreddy.in {
+  reverse_proxy wallos:8282
+}
