@@ -21,3 +21,7 @@ filebrowser.hreddy.in {
 stirling.hreddy.in {
   reverse_proxy stirling-pdf:8080
 }
+
+portainer.hreddy.in {
+  reverse_proxy portainer:9000
+}
