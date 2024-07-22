@@ -8,7 +8,6 @@ services:
       - $HOME/docker_volumes/foundry_main_data:/data/foundry_main
       - $HOME/docker_volumes/foundry_test_data:/data/foundry_test
       - $PWD/config/:/config
-      # - $PWD/database/filebrowser.db:/database/filebrowser.db
     environment:
       - FB_BASEURL=/filebrowser
     restart: always

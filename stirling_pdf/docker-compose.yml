@@ -1,0 +1,17 @@
+services:
+  stirling-pdf:
+    image: frooodle/s-pdf:latest
+    networks:
+      - caddy
+    volumes:
+      - $HOME/docker_volumes/stirling_pdf/trainingData:/usr/share/tessdata #Required for extra OCR languages
+      - $PWD/extraConfigs:/configs
+    environment:
+      - DOCKER_ENABLE_SECURITY=false
+      - INSTALL_BOOK_AND_ADVANCED_HTML_OPS=false
+      - LANGS=en_GB
+
+networks:
+  caddy:
+    name: caddy
+    external: true

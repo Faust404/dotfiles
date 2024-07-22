@@ -17,3 +17,7 @@ importer.hreddy.in {
 filebrowser.hreddy.in {
   reverse_proxy filebrowser:8080
 }
+
+stirling.hreddy.in {
+  reverse_proxy stirling-pdf:8080
+}
