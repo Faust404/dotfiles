@@ -29,3 +29,8 @@ portainer.hreddy.in {
 wallos.hreddy.in {
   reverse_proxy wallos:8282
 }
+
+syncthing.hreddy.in {
+  reverse_proxy syncthing:8384
+}
+
