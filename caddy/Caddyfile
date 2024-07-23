@@ -11,17 +11,17 @@ stirling.hreddy.in {
   reverse_proxy stirling-pdf:8080
 }
 
-# Test foundry server
+# Test foundry VTT server
 test.hreddy.in {
   reverse_proxy foundry_test:30000
 }
 
-# Main foundry server
+# Main foundry VTT server
 dnd.hreddy.in {
   reverse_proxy foundry_server:30000
 }
 
-# Firefly III setup
+# Firefly III for personal finance management
 firefly.hreddy.in {
   reverse_proxy app:8080
 }
@@ -31,13 +31,19 @@ importer.hreddy.in {
   reverse_proxy importer:8080
 }
 
+# Subscription overview service
 wallos.hreddy.in {
   reverse_proxy wallos:80
 }
 
-# Pingvin Share setup
+# Pingvin Share for file hosting and sharing
 pingvin.hreddy.in {
   reverse_proxy pingvin-share:3000
+}
+
+# Homepage setup
+home.hreddy.in {
+  reverse_proxy homepage:3000
 }
 
 # syncthing.hreddy.in {
