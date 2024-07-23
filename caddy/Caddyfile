@@ -1,36 +1,45 @@
-test.hreddy.in {
-  reverse_proxy foundry_test:30000
-}
-
-dnd.hreddy.in {
-  reverse_proxy foundry_server:30000
-}
-
-firefly.hreddy.in {
-  reverse_proxy app:8080
-}
-
-importer.hreddy.in {
-  reverse_proxy importer:8080
+portainer.hreddy.in {
+  reverse_proxy portainer:9000
 }
 
 filebrowser.hreddy.in {
   reverse_proxy filebrowser:8080
 }
 
+# Stirling-PDF setup
 stirling.hreddy.in {
   reverse_proxy stirling-pdf:8080
 }
 
-portainer.hreddy.in {
-  reverse_proxy portainer:9000
+# Test foundry server
+test.hreddy.in {
+  reverse_proxy foundry_test:30000
+}
+
+# Main foundry server
+dnd.hreddy.in {
+  reverse_proxy foundry_server:30000
+}
+
+# Firefly III setup
+firefly.hreddy.in {
+  reverse_proxy app:8080
+}
+
+# Firefly III importer setup
+importer.hreddy.in {
+  reverse_proxy importer:8080
 }
 
 wallos.hreddy.in {
-  reverse_proxy wallos:8282
+  reverse_proxy wallos:80
 }
 
-syncthing.hreddy.in {
-  reverse_proxy syncthing:8384
+# Pingvin Share setup
+pingvin.hreddy.in {
+  reverse_proxy pingvin-share:3000
 }
 
+# syncthing.hreddy.in {
+#   reverse_proxy syncthing:8384
+# }
