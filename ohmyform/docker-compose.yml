@@ -1,0 +1,23 @@
+services:
+  ohmyform:
+    image: ohmyform/ohmyform
+    container_name: ohmyform
+    networks:
+      - caddy
+    volumes:
+      - "$HOME/docker_volumes/ohmyform/data:/data"
+    environment:
+      CREATE_ADMIN: "TRUE"
+      ADMIN_EMAIL: himavanth.reddy19@gmail.com
+      ADMIN_USERNAME: admin
+      ADMIN_PASSWORD: admin
+      DATABASE_DRIVER: sqlite
+      DATABASE_URL: "sqlite:///data/data.sqlite"
+      MAILER_URI: smtp://local.host
+      LOGIN_NOTE: "Either login with admin:admin or create your own account to test OhMyForm"
+    restart: unless-stopped
+  
+networks:
+  caddy:
+    name: caddy
+    external: true

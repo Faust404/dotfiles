@@ -46,6 +46,11 @@ home.hreddy.in {
   reverse_proxy homepage:3000
 }
 
+# Form filler setup
+form.hreddy.in {
+  reverse_proxy ohmyform:3000
+}
+
 # syncthing.hreddy.in {
 #   reverse_proxy syncthing:8384
 # }
