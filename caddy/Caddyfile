@@ -51,6 +51,11 @@ form.hreddy.in {
   reverse_proxy ohmyform:3000
 }
 
+# Epic games free game captcha
+epicgames.hreddy.in {
+  reverse_proxy epicgames:3000
+}
+
 # syncthing.hreddy.in {
 #   reverse_proxy syncthing:8384
 # }
