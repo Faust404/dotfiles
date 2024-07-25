@@ -77,6 +77,11 @@ auth.hreddy.in {
   reverse_proxy authelia:9091
 }
 
+# Code server setup
+code.hreddy.in {
+  reverse_proxy code-server:8443
+}
+
 # syncthing.hreddy.in {
 #   reverse_proxy syncthing:8384
 # }
