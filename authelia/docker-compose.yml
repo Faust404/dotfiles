@@ -5,7 +5,7 @@ services:
     restart: unless-stopped
     depends_on:
       - redis
-      # - database
+      # - postgres
     networks:
       - caddy
     volumes:
@@ -18,17 +18,18 @@ services:
       AUTHELIA_SESSION_REDIS_PASSWORD_FILE: /config/secrets/REDIS_PASSWORD
       # AUTHELIA_NOTIFIER_SMTP_PASSWORD_FILE: /config/secrets/SMTP_PASSWORD
 
-  # database:
+  # postgres:
   #   image: postgres
   #   container_name: postgres_authelia
   #   restart: unless-stopped
-  #   # networks:
-  #   #   - caddy
+  #   networks:
+  #     - caddy
   #   volumes:
   #     - $HOME/docker_volumes/authelia/postgres:/var/lib/postgresql/data
   #   environment:
   #     POSTGRES_USER: "authelia"
   #     POSTGRES_PASSWORD: "[sBF8KbRdXjAnUmoETTSyEGH1lyxIHi9G8R7JetemNSQrBYmAlP54WwmunOEJ3z7t]"
+  #     POSTGRES_DB: "authelia"
 
   redis:
     image: redis:alpine

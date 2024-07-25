@@ -58,6 +58,12 @@ epicgames.hreddy.in {
 
 # Code snippet container
 snippets.hreddy.in {
+
+  # basic_auth {
+	# 	# Username "faust", password "hima@1997"
+	# 	faust $2a$14$.8beYXs8Vnjay4g0WNN17OBaOj0gzZlO4Z8Yv7ElzN5eapKbCIlP2
+	# }
+
   forward_auth authelia:9091 {
 		uri /api/verify?rd=https://auth.hreddy.in
 		copy_headers Remote-User Remote-Groups Remote-Name Remote-Email
