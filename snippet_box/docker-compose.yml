@@ -1,0 +1,14 @@
+services:
+  snippet-box:
+    image: pawelmalak/snippet-box
+    container_name: snippet-box
+    volumes:
+      - $HOME/docker_volumes/snippet_box/data:/app/data
+    networks:
+      - caddy
+    restart: unless-stopped
+
+networks:
+  caddy:
+    name: caddy
+    external: true

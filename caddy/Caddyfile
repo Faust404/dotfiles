@@ -56,6 +56,11 @@ epicgames.hreddy.in {
   reverse_proxy epicgames:3000
 }
 
+# Code snippet container
+snippets.hreddy.in {
+  reverse_proxy snippet-box:5000
+}
+
 # syncthing.hreddy.in {
 #   reverse_proxy syncthing:8384
 # }
