@@ -93,6 +93,11 @@ dozzle.hreddy.in {
   reverse_proxy dozzle:8080
 }
 
+# Reactive resume setup
+resume.hreddy.in {
+  reverse_proxy reactive_resume:3000
+}
+
 # syncthing.hreddy.in {
 #   reverse_proxy syncthing:8384
 # }
