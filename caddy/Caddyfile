@@ -98,6 +98,11 @@ resume.hreddy.in {
   reverse_proxy reactive_resume:3000
 }
 
+# HR Converter setup
+converter.hreddy.in {
+  reverse_proxy hrconvert2:80
+}
+
 # syncthing.hreddy.in {
 #   reverse_proxy syncthing:8384
 # }
