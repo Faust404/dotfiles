@@ -4,8 +4,6 @@ services:
     image: itzg/minecraft-server:latest
     tty: true
     stdin_open: true
-    # networks:
-    #   - caddy
     ports:
       - 25565:25565
     environment:
@@ -20,23 +18,20 @@ services:
       MAX_PLAYERS: 10
       WHITELIST_FILE: /extra/whitelist.json
       OPS_FILE: /extra/ops.json
-      RCON_CMDS_STARTUP: /gamerule keepInventory true
+      RCON_CMDS_STARTUP: |
+        /gamerule keepInventory true
+        /gamerule playersSleepingPercentage 0
       MODRINTH_DOWNLOAD_DEPENDENCIES: "required"
       MODRINTH_ALLOWED_VERSION_TYPE: "alpha"
       MODRINTH_PROJECTS: |
         fabric-api
+        carpet:f2mvlGrg
         lithium
         ferrite-core
         c2me-fabric
         modernfix
         appleskin
-        sleep
     volumes:
       - $HOME/docker_volumes/minecraft/data:/data
       - $HOME/docker_volumes/minecraft/mods:/data/mods
       - $HOME/docker_volumes/minecraft/extra:/extra
-
-# networks:
-#   caddy:
-#     name: caddy
-#     external: true
