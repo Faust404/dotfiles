@@ -21,6 +21,7 @@ services:
       RCON_CMDS_STARTUP: |
         /gamerule keepInventory true
         /gamerule playersSleepingPercentage 0
+        /gamerule disableElytraMovementCheck true
       MODRINTH_DOWNLOAD_DEPENDENCIES: "required"
       MODRINTH_ALLOWED_VERSION_TYPE: "alpha"
       MODRINTH_PROJECTS: |
@@ -31,6 +32,30 @@ services:
         c2me-fabric
         modernfix
         appleskin
+        clumps
+        netherportalfix
+        lmd
+        always-a-wither-skull
+        automatic-doors
+        beautified-chat-server
+        better-beacon-placement
+        better-conduit-placement
+        better-spawner-control
+        compact-help-command
+        dismount-entity
+        easy-elytra-takeoff
+        inventory-totem
+        keep-my-soil-tilled
+        no-animal-tempt-delay
+        no-feather-trample
+        quick-right-click
+        replanting-crops
+        scaffolding-drops-nearby
+        softer-hay-bales
+        sticky-enchanting-lapis
+        thorny-bush-protection
+        wool-tweaks
+        zombie-proof-doors
     volumes:
       - $HOME/docker_volumes/minecraft/data:/data
       - $HOME/docker_volumes/minecraft/mods:/data/mods
