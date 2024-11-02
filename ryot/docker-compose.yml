@@ -1,0 +1,33 @@
+services:
+  ryot-db:
+    image: postgres:16-alpine # at-least version 15 is required
+    container_name: ryot-db
+    restart: unless-stopped
+    networks:
+      - caddy
+    volumes:
+      - $HOME/docker_volumes/ryot/postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=ryot_postgres
+      - POSTGRES_USER=ryot_postgres
+      - POSTGRES_DB=ryot_postgres
+
+  ryot:
+    image: ghcr.io/ignisda/ryot:latest
+    container_name: ryot
+    depends_on:
+      - ryot-db
+    networks:
+      - caddy
+    volumes:
+      - $HOME/docker_volumes/ryot/data:/data
+    environment:
+      # - SERVER_INSECURE_COOKIE=true
+      - DATABASE_URL=postgres://ryot_postgres:ryot_postgres@ryot-db:5432/ryot_postgres
+      - TZ=Asia/Kolkata
+    pull_policy: always
+
+networks:
+  caddy:
+    name: caddy
+    external: true

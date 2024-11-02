@@ -103,6 +103,7 @@ converter.hreddy.in {
   reverse_proxy hrconvert2:80
 }
 
-# syncthing.hreddy.in {
-#   reverse_proxy syncthing:8384
-# }
+# Personal tracker, Ryot setup
+ryot.hreddy.in {
+  reverse_proxy ryot:8000
+}
