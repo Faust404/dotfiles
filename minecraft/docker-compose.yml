@@ -9,7 +9,7 @@ services:
     environment:
       EULA: "TRUE"
       TYPE: FABRIC
-      MEMORY: 4G
+      MEMORY: 3G
       MOTD: Welcome to the server!
       SEED: 7599824378187852
       DIFFICULTY: NORMAL
@@ -46,8 +46,10 @@ services:
         easy-elytra-takeoff
         inventory-totem
         keep-my-soil-tilled
+        leaves-be-gone
         no-animal-tempt-delay
         no-feather-trample
+        pets-not-friendly-fire
         quick-right-click
         replanting-crops
         scaffolding-drops-nearby
