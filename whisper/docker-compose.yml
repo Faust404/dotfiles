@@ -1,0 +1,15 @@
+services:
+  whisper-asr-webservice:
+    image: onerahmet/openai-whisper-asr-webservice:latest
+    container_name: whisper_asr_webservice
+    environment:
+      - ASR_MODEL=base
+      # - ASR_ENGINE=openai_whisper
+      - ASR_ENGINE=faster_whisper
+    networks:
+      - caddy
+
+networks:
+  caddy:
+    name: caddy
+    external: true

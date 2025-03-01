@@ -122,3 +122,8 @@ musicserver.hreddy.in {
 music.hreddy.in {
   reverse_proxy your-spotify-client:3000
 }
+
+# Your Spotify Stat Tracker Server
+whisper.hreddy.in {
+  reverse_proxy whisper-asr-webservice:9000
+}
