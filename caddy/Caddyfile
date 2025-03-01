@@ -127,3 +127,19 @@ music.hreddy.in {
 whisper.hreddy.in {
   reverse_proxy whisper-asr-webservice:9000
 }
+
+# Nextcloud setup
+# https://nextcloud.hreddy.in.tld:443 {
+nextcloud.hreddy.in {
+  # reverse_proxy nextcloud-aio-mastercontainer:8000
+  # reverse_proxy nextcloud-aio-mastercontainer:11000
+  # reverse_proxy nextcloud-aio-mastercontainer:8080
+
+  reverse_proxy nextcloud-aio-mastercontainer:8080 {
+  # reverse_proxy nextcloud-aio-mastercontainer:11000 {
+  transport http {
+            tls_insecure_skip_verify
+        }
+  }
+
+}
