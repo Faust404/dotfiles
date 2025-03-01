@@ -107,3 +107,8 @@ converter.hreddy.in {
 ryot.hreddy.in {
   reverse_proxy ryot:8000
 }
+
+# Minecraft server setup
+minecraft.hreddy.in {
+  reverse_proxy mc-server:25565
+}
