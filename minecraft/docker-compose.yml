@@ -9,6 +9,7 @@ services:
     environment:
       EULA: "TRUE"
       TYPE: FABRIC
+      VERSION: "1.21.1"
       MEMORY: 3G
       MOTD: Welcome to the server!
       SEED: 7599824378187852
