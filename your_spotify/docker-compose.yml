@@ -1,0 +1,38 @@
+services:
+  your-spotify-server:
+    image: yooooomi/your_spotify_server
+    container_name: your_spotify_server
+    restart: always
+    networks:
+      - caddy
+    links:
+      - mongo
+    depends_on:
+      - mongo
+    environment:
+      API_ENDPOINT: https://musicserver.hreddy.in
+      CLIENT_ENDPOINT: https://music.hreddy.in
+      SPOTIFY_PUBLIC: 6b486a38aa9b4b7298669bbecf52ddc9
+      SPOTIFY_SECRET: 39264f678de1463391a54c9f16ad1b6f
+  mongo:
+    container_name: mongo
+    image: mongo:6
+    networks:
+      - caddy
+    volumes:
+      - $HOME/docker_volumes/your_spotify_db:/data/db
+
+  your-spotify-client:
+    image: yooooomi/your_spotify_client
+    container_name: your_spotify_client
+    restart: always
+    networks:
+      - caddy
+    environment:
+      API_ENDPOINT: https://musicserver.hreddy.in
+
+
+networks:
+  caddy:
+    name: caddy
+    external: true
