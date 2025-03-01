@@ -112,3 +112,13 @@ ryot.hreddy.in {
 minecraft.hreddy.in {
   reverse_proxy mc-server:25565
 }
+
+# Your Spotify Stat Tracker Server
+musicserver.hreddy.in {
+  reverse_proxy your-spotify-server:8080
+}
+
+# Your Spotify Stat Tracker Client
+music.hreddy.in {
+  reverse_proxy your-spotify-client:3000
+}
