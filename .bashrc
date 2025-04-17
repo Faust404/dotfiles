@@ -37,7 +37,6 @@ alias zt='zathura'
 alias rmd='rm -rfv'
 alias mkd='mkdir -pv'
 alias wifi='nmcli device wifi list'
-alias gg='sudo shutdown now'
 alias eb='vim ~/.bashrc'
 alias sb='source ~/.bashrc'
 
