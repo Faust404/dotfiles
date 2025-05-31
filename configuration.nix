@@ -103,6 +103,13 @@
         '';
       };
 
+      # Portainer
+      "portainer.hreddy.in" = {
+        extraConfig = ''
+          reverse_proxy localhost:9000
+        '';
+      };
+
     };
   };
 
