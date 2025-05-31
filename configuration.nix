@@ -117,6 +117,13 @@
         '';
       };
 
+      # Snippets
+      "snippets.hreddy.in" = {
+        extraConfig = ''
+          reverse_proxy localhost:5000
+        '';
+      };
+
     };
   };
 
