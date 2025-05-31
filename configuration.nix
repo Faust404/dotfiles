@@ -74,12 +74,21 @@
     enable = true;
     # Configure Caddy as a reverse proxy
     virtualHosts = {
-      # Example 1: Simple website proxy
+
+      # Stirling PDF
       "stirling.hreddy.in" = {
         extraConfig = ''
           reverse_proxy localhost:8080
         '';
       };
+
+      # Dozzle
+      "dozzle.hreddy.in" = {
+        extraConfig = ''
+          reverse_proxy localhost:8081
+        '';
+      };
+
     };
   };
 

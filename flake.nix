@@ -23,6 +23,7 @@
         modules = [
           ./configuration.nix
           ./docker/stirling_pdf/docker-compose.nix
+          ./docker/dozzle/docker-compose.nix
           ];
       };
 

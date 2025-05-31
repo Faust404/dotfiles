@@ -5,7 +5,7 @@
   virtualisation.oci-containers = {
     backend = "docker";
     containers = {
-      stirling-pdf-oci = {
+      stirling-pdf = {
         image = "docker.stirlingpdf.com/stirlingtools/stirling-pdf:latest";
         autoStart = true;
         ports = [ "8080:8080" ];
@@ -24,6 +24,7 @@
           UI_APPNAME = "Stirling-PDF-OCI";
           UI_HOMEDESCRIPTION = "PDF tools via OCI containers";
         };
+        log-driver = "journald";
       };
     };
   };
