@@ -1,0 +1,11 @@
+services:
+  hrconvert2:
+    image: zelon88/hrconvert2:latest
+    container_name: hrconvert2
+    networks:
+      - caddy
+
+networks:
+  caddy:
+    name: caddy
+    external: true

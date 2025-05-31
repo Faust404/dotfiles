@@ -1,0 +1,17 @@
+services:
+  epicgames:
+    image: ghcr.io/claabs/epicgames-freegames-node:latest
+    container_name: epicgames_free
+    volumes:
+      - "$HOME/docker_volumes/epicgames:/usr/app/config"
+    networks:
+      - caddy
+    deploy:
+      resources:
+        limits:
+          memory: 2g
+
+networks:
+  caddy:
+    name: caddy
+    external: true

@@ -1,0 +1,15 @@
+services:
+  pingvin-share:
+    image: stonith404/pingvin-share
+    container_name: pingvin_share
+    restart: unless-stopped
+    networks:
+      - caddy
+    volumes:
+      - "$HOME/docker_volumes/pingvin_share/data:/opt/app/backend/data"
+      - "$HOME/docker_volumes/pingvin_share/data/images:/opt/app/frontend/public/img"
+  
+networks:
+  caddy:
+    name: caddy
+    external: true

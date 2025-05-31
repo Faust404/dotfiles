@@ -1,0 +1,145 @@
+portainer.hreddy.in {
+  reverse_proxy portainer:9000
+}
+
+filebrowser.hreddy.in {
+  reverse_proxy filebrowser:8080
+}
+
+# Stirling-PDF setup
+stirling.hreddy.in {
+  reverse_proxy stirling-pdf:8080
+}
+
+# Test foundry VTT server
+test.hreddy.in {
+  reverse_proxy foundry_test:30000
+}
+
+# Main foundry VTT server
+dnd.hreddy.in {
+  reverse_proxy foundry_server:30000
+}
+
+# Firefly III for personal finance management
+firefly.hreddy.in {
+  reverse_proxy app:8080
+}
+
+# Firefly III importer setup
+importer.hreddy.in {
+  reverse_proxy importer:8080
+}
+
+# Subscription overview service
+wallos.hreddy.in {
+  reverse_proxy wallos:80
+}
+
+# Pingvin Share for file hosting and sharing
+pingvin.hreddy.in {
+  reverse_proxy pingvin-share:3000
+}
+
+# Homepage setup
+home.hreddy.in {
+  reverse_proxy homepage:3000
+}
+
+# Form filler setup
+form.hreddy.in {
+  reverse_proxy ohmyform:3000
+}
+
+# Epic games free game captcha
+epicgames.hreddy.in {
+  reverse_proxy epicgames:3000
+}
+
+# Code snippet container
+snippets.hreddy.in {
+
+  # basic_auth {
+	# 	# Username "faust", password "hima@1997"
+	# 	faust $2a$14$.8beYXs8Vnjay4g0WNN17OBaOj0gzZlO4Z8Yv7ElzN5eapKbCIlP2
+	# }
+
+  forward_auth authelia:9091 {
+		uri /api/verify?rd=https://auth.hreddy.in
+		copy_headers Remote-User Remote-Groups Remote-Name Remote-Email
+	}
+
+  reverse_proxy snippet-box:5000
+}
+
+# Authelia setup
+auth.hreddy.in {
+  reverse_proxy authelia:9091
+}
+
+# Code server setup
+code.hreddy.in {
+  reverse_proxy code-server:8443
+}
+
+# Dozzle docker log viewer setup
+dozzle.hreddy.in {
+
+  forward_auth authelia:9091 {
+		uri /api/verify?rd=https://auth.hreddy.in
+		copy_headers Remote-User Remote-Groups Remote-Name Remote-Email
+	}
+
+  reverse_proxy dozzle:8080
+}
+
+# Reactive resume setup
+resume.hreddy.in {
+  reverse_proxy reactive_resume:3000
+}
+
+# HR Converter setup
+converter.hreddy.in {
+  reverse_proxy hrconvert2:80
+}
+
+# Personal tracker, Ryot setup
+ryot.hreddy.in {
+  reverse_proxy ryot:8000
+}
+
+# Minecraft server setup
+minecraft.hreddy.in {
+  reverse_proxy mc-server:25565
+}
+
+# Your Spotify Stat Tracker Server
+musicserver.hreddy.in {
+  reverse_proxy your-spotify-server:8080
+}
+
+# Your Spotify Stat Tracker Client
+music.hreddy.in {
+  reverse_proxy your-spotify-client:3000
+}
+
+# Your Spotify Stat Tracker Server
+whisper.hreddy.in {
+  reverse_proxy whisper-asr-webservice:9000
+}
+
+# Nextcloud setup
+# https://nextcloud.hreddy.in.tld:443 {
+nextcloud.hreddy.in {
+  # reverse_proxy nextcloud-aio-mastercontainer:8000
+  # reverse_proxy nextcloud-aio-mastercontainer:11000
+  # reverse_proxy nextcloud-aio-mastercontainer:8080
+
+  reverse_proxy nextcloud-aio-mastercontainer:8080 {
+  # reverse_proxy nextcloud-aio-mastercontainer:11000 {
+  transport http {
+            tls_insecure_skip_verify
+        }
+  }
+
+}

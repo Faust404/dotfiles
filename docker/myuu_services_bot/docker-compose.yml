@@ -1,0 +1,8 @@
+services:
+  myuu:
+    image: index.docker.io/himavanth19/services_bot
+    container_name: myuu_services
+    env_file:
+      - $PWD/.env
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"

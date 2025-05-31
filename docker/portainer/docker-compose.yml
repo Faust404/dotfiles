@@ -1,0 +1,15 @@
+services:
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer_ce
+    networks:
+      - caddy
+    volumes:
+      - $HOME/docker_volumes/portainer/data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+
+networks:
+  caddy:
+    name: caddy
+    external: true

@@ -1,0 +1,15 @@
+services:
+  wallos:
+    container_name: wallos
+    image: bellamy/wallos:latest
+    networks:
+      - caddy
+    volumes:
+      - '$HOME/docker_volumes/wallos/db:/var/www/html/db'
+      - '$HOME/docker_volumes/wallos/logos:/var/www/html/images/uploads/logos'
+    restart: unless-stopped
+  
+networks:
+  caddy:
+    name: caddy
+    external: true

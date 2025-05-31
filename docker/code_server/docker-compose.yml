@@ -1,0 +1,21 @@
+services:
+  code-server:
+    image: lscr.io/linuxserver/code-server:latest
+    container_name: code-server
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - PASSWORD=hima@1997
+      - SUDO_PASSWORD=hima@1997
+      - DEFAULT_WORKSPACE=/config/workspace
+    volumes:
+      - $HOME/docker_volumes/code_server/config:/config
+    networks:
+      - caddy
+    restart: unless-stopped
+
+networks:
+  caddy:
+    name: caddy
+    external: true
