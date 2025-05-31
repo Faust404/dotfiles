@@ -27,6 +27,7 @@
           ./docker/filebrowser/docker-compose.nix
           ./docker/pingvin_share/docker-compose.nix
           ./docker/portainer/docker-compose.nix
+          ./docker/wallos/docker-compose.nix
           ];
       };
 
