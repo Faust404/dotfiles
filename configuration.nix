@@ -40,6 +40,7 @@
   environment.systemPackages = with pkgs; [
     wget
     curl
+    compose2nix
   ];
 
   # Set timeout to 30 minutes
