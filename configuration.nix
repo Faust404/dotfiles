@@ -14,6 +14,7 @@
   networking = {
     hostName = "nixos";                  # Define your hostname
     networkmanager.enable = true;        # Enable NetworkManager
+    firewall.allowedTCPPorts = [80 443];
   };
 
   # Set your time zone.
@@ -58,13 +59,27 @@
     };
   };
 
-  # Enable docker
-  virtualisation.docker.enable = true;
-
-  # use docker without Root access (Rootless docker)
-  virtualisation.docker.rootless = {
+  # Docker Settings
+  virtualisation.docker = {
     enable = true;
-    setSocketVariable = true;
+    # Use docker without Root access (Rootless docker)
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
+
+  services.caddy = {
+    enable = true;
+    # Configure Caddy as a reverse proxy
+    virtualHosts = {
+      # Example 1: Simple website proxy
+      "stirling.hreddy.in" = {
+        extraConfig = ''
+          reverse_proxy localhost:8080
+        '';
+      };
+    };
   };
 
   # Automatic cleanup
