@@ -41,6 +41,11 @@
     curl
   ];
 
+  # Set timeout to 30 minutes
+  security.sudo.extraConfig = ''
+    Defaults        timestamp_timeout=30
+  '';
+
   # To get VSCode to be able to connect from windows client
   programs.nix-ld.enable = true;
 
