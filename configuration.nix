@@ -55,7 +55,7 @@
   services.openssh = {
   	enable = true;
     settings = {
-      PasswordAuthentication = false;
+      PasswordAuthentication = true;
       PermitRootLogin = "prohibit-password";
     };
   };
@@ -86,6 +86,13 @@
       "dozzle.hreddy.in" = {
         extraConfig = ''
           reverse_proxy localhost:8081
+        '';
+      };
+
+      # Filebrowser
+      "filebrowser.hreddy.in" = {
+        extraConfig = ''
+          reverse_proxy localhost:8082
         '';
       };
 
