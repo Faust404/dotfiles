@@ -22,6 +22,7 @@
         specialArgs = {inherit inputs system; };
         modules = [
           ./configuration.nix
+          ./docker/stirling_pdf/docker-compose.nix
           ];
       };
 
