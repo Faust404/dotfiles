@@ -25,6 +25,7 @@
           ./docker/stirling_pdf/docker-compose.nix
           ./docker/dozzle/docker-compose.nix
           ./docker/filebrowser/docker-compose.nix
+          ./docker/pingvin_share/docker-compose.nix
           ];
       };
 
