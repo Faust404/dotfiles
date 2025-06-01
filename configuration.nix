@@ -152,6 +152,13 @@
         '';
       };
 
+      # Foundry VTT Main Server
+      "dnd.hreddy.in" = {
+        extraConfig = ''
+          reverse_proxy localhost:30000
+        '';
+      };
+
     };
   };
 
