@@ -7,12 +7,8 @@ services:
       - caddy
     volumes:
       - $HOME/docker_volumes/foundry_test_data:/data
-    environment:
-      - FOUNDRY_PASSWORD=QC5S@tGgNLhv
-      - FOUNDRY_USERNAME=himavanth.reddy19@gmail.com
-      - FOUNDRY_ADMIN_KEY=hima@1997
-      - FOUNDRY_GID=1000
-      - FOUNDRY_UID=1000
+    env_file:
+      - $PWD/.env
 
 networks:
   caddy:
