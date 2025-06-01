@@ -30,6 +30,7 @@
           ./docker/wallos/docker-compose.nix
           ./docker/snippet_box/docker-compose.nix
           ./docker/firefly/docker-compose.nix
+          ./docker/your_spotify/docker-compose.nix
           ];
       };
 

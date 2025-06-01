@@ -138,6 +138,20 @@
         '';
       };
 
+      # Your Spotify Client
+      "musicserver.hreddy.in" = {
+        extraConfig = ''
+          reverse_proxy localhost:6000
+        '';
+      };
+
+      # Your Spotify Client
+      "music.hreddy.in" = {
+        extraConfig = ''
+          reverse_proxy localhost:6001
+        '';
+      };
+
     };
   };
 
