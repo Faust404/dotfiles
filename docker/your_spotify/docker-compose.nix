@@ -2,6 +2,9 @@
 
 {
 
+  # Agenix secrets
+  age.secrets.your_spotify.file = ../../secrets/your_spotify.age;
+
   # Containers
   virtualisation.oci-containers = {
     backend = "docker";
@@ -21,9 +24,7 @@
 
       your_spotify-server = {
         image = "yooooomi/your_spotify_server";
-        environmentFiles = [ 
-          "${config.users.users.faust.home}/dotfiles/docker/your_spotify/.env"
-        ];
+        environmentFiles = [ config.age.secrets.your_spotify.path ];
         ports = [ "6000:8080/tcp" ];
         dependsOn = [
           "mongo"
