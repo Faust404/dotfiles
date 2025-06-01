@@ -29,6 +29,7 @@
           ./docker/portainer/docker-compose.nix
           ./docker/wallos/docker-compose.nix
           ./docker/snippet_box/docker-compose.nix
+          ./docker/firefly/docker-compose.nix
           ];
       };
 

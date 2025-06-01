@@ -124,6 +124,20 @@
         '';
       };
 
+      # Firefly Service
+      "firefly.hreddy.in" = {
+        extraConfig = ''
+          reverse_proxy localhost:7000
+        '';
+      };
+
+      # Firefly Importer
+      "importer.hreddy.in" = {
+        extraConfig = ''
+          reverse_proxy localhost:7001
+        '';
+      };
+
     };
   };
 
