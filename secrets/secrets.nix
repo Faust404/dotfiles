@@ -6,4 +6,5 @@ let
 in
 {
   "your_spotify.age".publicKeys = systems;
+  "foundryvtt.age".publicKeys = systems;
 }
