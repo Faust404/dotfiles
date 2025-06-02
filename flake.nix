@@ -25,6 +25,7 @@
           agenix.nixosModules.default
           { environment.systemPackages = [ agenix.packages.aarch64-linux.default ]; }
           ./configuration.nix
+          ./docker/caddy/caddy.nix
           ./docker/stirling_pdf/docker-compose.nix
           ./docker/dozzle/docker-compose.nix
           ./docker/filebrowser/docker-compose.nix
