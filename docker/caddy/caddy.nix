@@ -11,9 +11,15 @@
       
       # Dozzle
       "dozzle.hreddy.in" = {
-        extraConfig = "reverse_proxy localhost:8081";
+        extraConfig = ''
+        forward_auth localhost:9091 {
+            uri /api/authz/forward-auth
+            copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+          }
+        reverse_proxy localhost:8081
+      '';
       };
-      
+
       # Filebrowser
       "filebrowser.hreddy.in" = {
         extraConfig = "reverse_proxy localhost:8082";
@@ -36,8 +42,6 @@
       
       # Snippets
       "snippets.hreddy.in" = {
-        # extraConfig = "reverse_proxy localhost:5000";
-
         extraConfig = ''
         forward_auth localhost:9091 {
             uri /api/authz/forward-auth
@@ -45,7 +49,6 @@
           }
         reverse_proxy localhost:5000
       '';
-
       };
       
       # Firefly Service
