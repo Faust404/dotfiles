@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   services.caddy = {
@@ -63,6 +63,12 @@
       "dnd.hreddy.in" = {
         extraConfig = "reverse_proxy localhost:30000";
       };
+
+      # Authelia
+      "auth.hreddy.in" = {
+        extraConfig = "reverse_proxy localhost:9091";
+      };
+
     };
   };
 }
