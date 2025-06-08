@@ -1,0 +1,73 @@
+# Miscellaneous https://www.authelia.com/configuration/miscellaneous/introduction/
+# Set also AUTHELIA_JWT_SECRET_FILE
+theme: auto
+
+# First Factor https://www.authelia.com/configuration/first-factor/file/
+authentication_backend:
+  file:
+    path: /users_database.yml
+
+# Second Factor https://www.authelia.com/configuration/second-factor/introduction/
+totp:
+  issuer: authelia.com
+
+# Security https://www.authelia.com/configuration/security/access-control/
+access_control:
+  default_policy: 'deny'
+  rules:
+  - domain: '*.hreddy.in'
+    policy: 'one_factor'
+
+# session:
+#   name: authelia_session
+#   # This secret can also be set using the env variables AUTHELIA_SESSION_SECRET_FILE
+#   # secret: SECRETREPLACE2 #Generate long string numb/letters
+#   expiration: 3600 # 1 hour
+#   inactivity: 7200 # 2 hours
+#   domain: hreddy.in
+
+# https://www.authelia.com/configuration/session/redis/
+# Set also AUTHELIA_SESSION_REDIS_PASSWORD_FILE if appropriate
+session:
+  cookies:
+  - domain: 'hreddy.in'
+    authelia_url: 'https://auth.hreddy.in'
+    name: 'authelia_session'
+    expiration: '1 hour'
+    inactivity: '5 minutes'
+  redis:
+    host: redis
+    port: 6379
+
+# Storage https://www.authelia.com/configuration/storage/postgres/
+# Set also AUTHELIA_STORAGE_POSTGRES_PASSWORD_FILE
+# Set also AUTHELIA_STORAGE_ENCRYPTION_KEY_FILE
+
+# storage:
+#   postgres:
+#     address: 'tcp://postgres:5432'
+#     # address: 'tcp://database:5432'
+#     # address: 'tcp://0.0.0.0:5432'
+#     database: authelia
+#     username: authelia
+#     password: authelia
+#     # host: database
+#     # port: 5432
+
+storage:
+  # encryption_key: SECRETREPLACE3 #Generate long string numb/letters
+  local:
+    path: /config/db.sqlite3
+
+
+# SMTP Notifier https://www.authelia.com/configuration/notifications/smtp/
+# Set also AUTHELIA_NOTIFIER_SMTP_PASSWORD_FILE
+notifier:
+  smtp:
+    username: 'himavanth.reddy19@gmail.com'
+    # Password can also be set using a secret: https://www.authelia.com/configuration/methods/secrets/
+    password: 'wviy xmlx iqns qpya'
+    sender: 'authelia@hreddy.in'
+    # host: 'smtp.gmail.com'
+    # port: 587
+    address: 'submission://smtp.gmail.com:587'

@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   # Containers
@@ -8,14 +8,12 @@
       authelia = {
         image = "authelia/authelia:latest";
         ports = [ "9091:9091" ];
+        environmentFiles = [ "/home/faust/dotfiles/docker/authelia/.env" ];
         environment = {
-          "AUTHELIA_IDENTITY_VALIDATION_RESET_PASSWORD_JWT_SECRET_FILE" = "/config/secrets/JWT_SECRET";
-          "AUTHELIA_SESSION_REDIS_PASSWORD_FILE" = "/config/secrets/REDIS_PASSWORD";
-          "AUTHELIA_SESSION_SECRET_FILE" = "/config/secrets/SESSION_SECRET";
-          "AUTHELIA_STORAGE_ENCRYPTION_KEY_FILE" = "/config/secrets/STORAGE_ENCRYPTION_KEY";
+          CONFIG_FILE = "/configuration.yml";
         };
         volumes = [
-          "/home/faust/docker_volumes/authelia/config:/config:rw"
+          "${config.users.users.faust.home}/docker_volumes/authelia/config:/config:rw"
         ];
         dependsOn = [
           "redis_authelia"
@@ -30,7 +28,7 @@
       redis_authelia = {
         image = "redis:7-alpine";
         volumes = [
-          "/home/faust/docker_volumes/authelia/redis:/data:rw"
+          "${config.users.users.faust.home}/docker_volumes/authelia/redis:/data:rw"
         ];
         log-driver = "journald";
         extraOptions = [
@@ -38,6 +36,7 @@
           "--network=authelia_authelia"
         ];
       };
+
     };
   };
 
