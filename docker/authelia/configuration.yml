@@ -57,7 +57,7 @@ session:
 storage:
   # encryption_key: SECRETREPLACE3 #Generate long string numb/letters
   local:
-    path: /config/db.sqlite3
+    path: /db.sqlite3
 
 
 # SMTP Notifier https://www.authelia.com/configuration/notifications/smtp/
@@ -65,9 +65,5 @@ storage:
 notifier:
   smtp:
     username: 'himavanth.reddy19@gmail.com'
-    # Password can also be set using a secret: https://www.authelia.com/configuration/methods/secrets/
-    password: 'wviy xmlx iqns qpya'
     sender: 'authelia@hreddy.in'
-    # host: 'smtp.gmail.com'
-    # port: 587
     address: 'submission://smtp.gmail.com:587'
