@@ -5,7 +5,7 @@ theme: auto
 # First Factor https://www.authelia.com/configuration/first-factor/file/
 authentication_backend:
   file:
-    path: /users_database.yml
+    path: /config/users_database.yml
 
 # Second Factor https://www.authelia.com/configuration/second-factor/introduction/
 totp:

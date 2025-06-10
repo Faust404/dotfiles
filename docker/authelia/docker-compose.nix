@@ -9,11 +9,9 @@
         image = "authelia/authelia:latest";
         ports = [ "9091:9091" ];
         environmentFiles = [ "/home/faust/dotfiles/docker/authelia/.env" ];
-        environment = {
-          CONFIG_FILE = "/configuration.yml";
-        };
         volumes = [
-          "${config.users.users.faust.home}/docker_volumes/authelia/config:/config:rw"
+          "${config.users.users.faust.home}/dotfiles/docker/authelia/configuration.yml:/config/configuration.yml:rw"
+          "${config.users.users.faust.home}/dotfiles/docker/authelia/users_database.yml:/config/users_database.yml:rw"
         ];
         dependsOn = [
           "redis_authelia"
