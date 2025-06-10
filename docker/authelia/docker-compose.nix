@@ -13,24 +13,9 @@
           "${config.users.users.faust.home}/dotfiles/docker/authelia/configuration.yml:/config/configuration.yml:rw"
           "${config.users.users.faust.home}/dotfiles/docker/authelia/users_database.yml:/config/users_database.yml:rw"
         ];
-        dependsOn = [
-          "redis_authelia"
-        ];
         log-driver = "journald";
         extraOptions = [
           "--network-alias=authelia"
-          "--network=authelia_authelia"
-        ];
-      };
-
-      redis_authelia = {
-        image = "redis:7-alpine";
-        volumes = [
-          "${config.users.users.faust.home}/docker_volumes/authelia/redis:/data:rw"
-        ];
-        log-driver = "journald";
-        extraOptions = [
-          "--network-alias=redis"
           "--network=authelia_authelia"
         ];
       };

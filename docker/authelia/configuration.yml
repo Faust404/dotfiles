@@ -18,14 +18,6 @@ access_control:
   - domain: '*.hreddy.in'
     policy: 'one_factor'
 
-# session:
-#   name: authelia_session
-#   # This secret can also be set using the env variables AUTHELIA_SESSION_SECRET_FILE
-#   # secret: SECRETREPLACE2 #Generate long string numb/letters
-#   expiration: 3600 # 1 hour
-#   inactivity: 7200 # 2 hours
-#   domain: hreddy.in
-
 # https://www.authelia.com/configuration/session/redis/
 # Set also AUTHELIA_SESSION_REDIS_PASSWORD_FILE if appropriate
 session:
@@ -35,9 +27,6 @@ session:
     name: 'authelia_session'
     expiration: '1 hour'
     inactivity: '5 minutes'
-  redis:
-    host: redis
-    port: 6379
 
 # Storage https://www.authelia.com/configuration/storage/postgres/
 # Set also AUTHELIA_STORAGE_POSTGRES_PASSWORD_FILE
