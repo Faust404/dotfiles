@@ -9,7 +9,7 @@
     backend = "docker";
     containers = {
       foundry_main = {
-        image = "felddy/foundryvtt:12.343";
+        image = "felddy/foundryvtt:13.345";
         ports = [ "30000:30000" ];
         environmentFiles = [ config.age.secrets.foundryvtt.path ];
         volumes = [
