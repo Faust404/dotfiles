@@ -1,11 +1,13 @@
 services:
   web:
-    image: ghcr.io/karakeep-app/karakeep:${KARAKEEP_VERSION:-release}
+    image: ghcr.io/karakeep-app/karakeep:latest
     restart: unless-stopped
     volumes:
-      - data:/data
+      - $HOME/docker_volumes/karakeep/data:/data
     ports:
-      - 3000:3000
+      - 3001:3000
+    env_file:
+    - .env
     environment:
       MEILI_ADDR: http://meilisearch:7700
       BROWSER_WEB_URL: http://chrome:9222
@@ -28,8 +30,6 @@ services:
     environment:
       MEILI_NO_ANALYTICS: "true"
     volumes:
-      - meilisearch:/meili_data
-
-volumes:
-  meilisearch:
-  data:
+      - $HOME/docker_volumes/karakeep/meilisearch:/meili_data
+    env_file:
+    - .env
