@@ -40,6 +40,9 @@
   environment.systemPackages = with pkgs; [
     wget
     curl
+    eza
+    unzip
+    openssl
     compose2nix
   ];
 
