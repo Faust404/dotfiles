@@ -10,8 +10,8 @@
         ports = [ "8082:8080" ];
         volumes = [
           "${config.users.users.faust.home}/docker_volumes/filebrowser/config/:/config:rw"
-          # "${config.users.users.faust.home}/docker_volumes/foundry_test_data:/data/foundry_test"
-          # "${config.users.users.faust.home}/docker_volumes/filebrowser/config/:/config"
+          "${config.users.users.faust.home}/docker_volumes/foundry_main_data:/data/foundry_main"
+          "${config.users.users.faust.home}/dotfiles:/data/dotfiles"
         ];
         environment = {
           "FB_BASEURL" = "/filebrowser";
