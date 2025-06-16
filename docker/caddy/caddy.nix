@@ -96,6 +96,11 @@
         extraConfig = "reverse_proxy localhost:3002";
       };
 
+      # Open Speedtest
+      "speedtest.hreddy.in" = {
+        extraConfig = "reverse_proxy localhost:3003";
+      };
+
     };
   };
 }

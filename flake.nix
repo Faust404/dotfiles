@@ -39,6 +39,7 @@
           ./docker/authelia/docker-compose.nix
           ./docker/karakeep/docker-compose.nix
           ./docker/convertx/docker-compose.nix
+          ./docker/speedtest/docker-compose.nix
           ];
       };
 
