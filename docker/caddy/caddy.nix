@@ -81,11 +81,20 @@
         extraConfig = "reverse_proxy localhost:9091";
       };
 
+      # Authelia
+      "lldap.hreddy.in" = {
+        extraConfig = "reverse_proxy localhost:17170";
+      };
+
       # Karakeep
       "karakeep.hreddy.in" = {
         extraConfig = "reverse_proxy localhost:3001";
       };
 
+      # ConvertX
+      "convertx.hreddy.in" = {
+        extraConfig = "reverse_proxy localhost:3002";
+      };
 
     };
   };

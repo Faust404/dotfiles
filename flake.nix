@@ -38,6 +38,7 @@
           ./docker/foundry_main/docker-compose.nix
           ./docker/authelia/docker-compose.nix
           ./docker/karakeep/docker-compose.nix
+          ./docker/convertx/docker-compose.nix
           ];
       };
 

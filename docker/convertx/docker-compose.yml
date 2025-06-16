@@ -1,0 +1,11 @@
+services:
+  convertx:
+    image: ghcr.io/c4illin/convertx
+    container_name: convertx
+    restart: unless-stopped
+    ports:
+      - "3002:3000"
+    env_file:
+      - .env
+    volumes:
+      - $HOME/docker_volumes/convertx/data:/app/data
