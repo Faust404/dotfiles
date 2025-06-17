@@ -1,0 +1,13 @@
+services:
+  kener:
+    image: rajnandan1/kener:latest
+    container_name: kener
+    env_file:
+      - .env
+    ports:
+      - '3004:3000/tcp'
+    volumes:
+      - $HOME/docker_volumes/kener/data:/app/database
+      - $HOME/docker_volumes/kener/uploads:/app/uploads
+    read_only: true
+    restart: unless-stopped

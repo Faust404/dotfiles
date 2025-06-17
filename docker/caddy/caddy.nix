@@ -101,6 +101,11 @@
         extraConfig = "reverse_proxy localhost:3003";
       };
 
+      # Kener Status Page
+      "kener.hreddy.in" = {
+        extraConfig = "reverse_proxy localhost:3004";
+      };
+
     };
   };
 }
