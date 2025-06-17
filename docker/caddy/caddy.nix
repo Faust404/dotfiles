@@ -101,9 +101,9 @@
         extraConfig = "reverse_proxy localhost:3003";
       };
 
-      # Kener Status Page
-      "kener.hreddy.in" = {
-        extraConfig = "reverse_proxy localhost:3004";
+      # Gatus Status Page
+      "status.hreddy.in" = {
+        extraConfig = "reverse_proxy localhost:8084";
       };
 
     };

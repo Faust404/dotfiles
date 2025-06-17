@@ -1,0 +1,82 @@
+storage:
+  type: sqlite
+  path: /data/data.db
+
+endpoints:
+  - name: Foundry VTT
+    url: https://dnd.hreddy.in
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+
+  - name: Portainer
+    url: https://portainer.hreddy.in
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+
+  - name: Stirling PDF
+    url: https://stirling.hreddy.in
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+
+  - name: File Browser
+    url: https://filebrowser.hreddy.in
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+
+  - name: Pingvin Share
+    url: https://pingvin.hreddy.in
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+
+  - name: Karakeep
+    url: https://karakeep.hreddy.in
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+
+  - name: Wallos
+    url: https://wallos.hreddy.in
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+
+  - name: Dozzle
+    url: https://dozzle.hreddy.in
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+
+  - name: Snippets
+    url: https://snippets.hreddy.in
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+
+  - name: Your Spotify
+    url: https://music.hreddy.in
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+
+  - name: Convert X
+    url: https://convertx.hreddy.in
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+
+  - name: Open Speedtest
+    url: https://speedtest.hreddy.in
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+
+  - name: Authelia
+    url: https://auth.hreddy.in
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"

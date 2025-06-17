@@ -40,7 +40,7 @@
           ./docker/karakeep/docker-compose.nix
           ./docker/convertx/docker-compose.nix
           ./docker/speedtest/docker-compose.nix
-          ./docker/kener/docker-compose.nix
+          ./docker/gatus/docker-compose.nix
           ];
       };
 
