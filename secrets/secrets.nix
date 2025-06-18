@@ -9,4 +9,5 @@ in
   "foundryvtt.age".publicKeys = systems;
   "kener.age".publicKeys = systems;
   "convertx.age".publicKeys = systems;
+  "karakeep.age".publicKeys = systems;
 }

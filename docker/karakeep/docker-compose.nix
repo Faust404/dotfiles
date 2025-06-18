@@ -2,6 +2,9 @@
 
 {
 
+  # Agenix secrets
+  age.secrets.karakeep.file = ../../secrets/karakeep.age;
+
   # Containers
   virtualisation.oci-containers = {
     backend = "docker";
@@ -29,7 +32,7 @@
         environment = {
           "MEILI_NO_ANALYTICS" = "true";
         };
-        environmentFiles = [ "${config.users.users.faust.home}/dotfiles/docker/karakeep/.env" ];
+        environmentFiles = [ config.age.secrets.karakeep.path ];
         volumes = [
           "${config.users.users.faust.home}/docker_volumes/karakeep/meilisearch:/meili_data:rw"
         ];
@@ -47,7 +50,7 @@
           "MEILI_ADDR" = "http://meilisearch:7700";
           "DATA_DIR" = "/data";
         };
-        environmentFiles = [ "${config.users.users.faust.home}/dotfiles/docker/karakeep/.env" ];
+        environmentFiles = [ config.age.secrets.karakeep.path ];
         volumes = [
           "${config.users.users.faust.home}/docker_volumes/karakeep/data:/data:rw"
         ];
