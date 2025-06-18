@@ -8,4 +8,5 @@ in
   "your_spotify.age".publicKeys = systems;
   "foundryvtt.age".publicKeys = systems;
   "kener.age".publicKeys = systems;
+  "convertx.age".publicKeys = systems;
 }

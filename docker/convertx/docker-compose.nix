@@ -2,6 +2,9 @@
 
 {
 
+  # Agenix secrets
+  age.secrets.convertx.file = ../../secrets/convertx.age;
+
   # Containers
   virtualisation.oci-containers = {
     backend = "docker";
@@ -12,9 +15,7 @@
         volumes = [
           "${config.users.users.faust.home}/docker_volumes/convertx/data:/app/data:rw"
         ];
-        environmentFiles = [ 
-          "${config.users.users.faust.home}/dotfiles/docker/convertx/.env"
-        ];
+        environmentFiles = [ config.age.secrets.convertx.path ];
         log-driver = "journald";
       };
     };
