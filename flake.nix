@@ -41,6 +41,7 @@
           ./docker/convertx/docker-compose.nix
           ./docker/speedtest/docker-compose.nix
           ./docker/gatus/docker-compose.nix
+          ./docker/homepage/docker-compose.nix
           ];
       };
 

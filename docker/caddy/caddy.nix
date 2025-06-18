@@ -106,6 +106,11 @@
         extraConfig = "reverse_proxy localhost:8084";
       };
 
+      # Homepage
+      "home.hreddy.in" = {
+        extraConfig = "reverse_proxy localhost:3004";
+      };
+
     };
   };
 }
