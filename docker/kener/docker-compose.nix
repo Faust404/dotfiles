@@ -2,6 +2,9 @@
 
 {
 
+  # Agenix secrets
+  age.secrets.kener.file = ../../secrets/your_spotify.age;
+
   # Create directories and set permissions declaratively
   systemd.tmpfiles.rules = [
     "d ${config.users.users.faust.home}/docker_volumes/kener/data 0755 1000 1000 -"
@@ -14,9 +17,7 @@
     containers = {
       kener = {
         image = "rajnandan1/kener:latest";
-        environmentFiles = [ 
-          "${config.users.users.faust.home}/dotfiles/docker/kener/.env"
-        ];
+        environmentFiles = [ config.age.secrets.kener.path ];
         volumes = [
           "${config.users.users.faust.home}/docker_volumes/kener/data:/app/database:rw"
           "${config.users.users.faust.home}/docker_volumes/kener/uploads:/app/uploads:rw"
