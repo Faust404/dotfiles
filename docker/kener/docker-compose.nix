@@ -3,7 +3,7 @@
 {
 
   # Agenix secrets
-  age.secrets.kener.file = ../../secrets/your_spotify.age;
+  age.secrets.kener.file = ../../secrets/kener.age;
 
   # Create directories and set permissions declaratively
   systemd.tmpfiles.rules = [
