@@ -42,6 +42,7 @@
     curl
     eza
     unzip
+    p7zip
     openssl
     compose2nix
   ];
