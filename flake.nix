@@ -42,6 +42,7 @@
           ./docker/speedtest/docker-compose.nix
           ./docker/gatus/docker-compose.nix
           ./docker/homepage/docker-compose.nix
+          ./modules/restic.nix
           ];
       };
 

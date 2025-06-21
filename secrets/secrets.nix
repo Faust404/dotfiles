@@ -10,4 +10,7 @@ in
   "kener.age".publicKeys = systems;
   "convertx.age".publicKeys = systems;
   "karakeep.age".publicKeys = systems;
+  "restic/password.age".publicKeys = systems;
+  "restic/repo.age".publicKeys = systems;
+  "restic/env.age".publicKeys = systems;
 }
