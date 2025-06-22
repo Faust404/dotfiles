@@ -13,4 +13,5 @@ in
   "restic/password.age".publicKeys = systems;
   "restic/repo.age".publicKeys = systems;
   "restic/env.age".publicKeys = systems;
+  "paperless_ngx.age".publicKeys = systems;
 }

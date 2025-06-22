@@ -111,6 +111,11 @@
         extraConfig = "reverse_proxy localhost:3004";
       };
 
+      # Paperless-ngx
+      "paperless.hreddy.in" = {
+        extraConfig = "reverse_proxy localhost:8001";
+      };
+
     };
   };
 }
