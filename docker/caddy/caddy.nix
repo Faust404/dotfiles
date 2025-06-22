@@ -20,11 +20,11 @@
       '';
       };
 
-      # Filebrowser
+      # File Browser Quantum
       "filebrowser.hreddy.in" = {
         extraConfig = "reverse_proxy localhost:8082";
       };
-      
+
       # Pingvin Share
       "pingvin.hreddy.in" = {
         extraConfig = "reverse_proxy localhost:3000";

@@ -14,4 +14,5 @@ in
   "restic/repo.age".publicKeys = systems;
   "restic/env.age".publicKeys = systems;
   "paperless_ngx.age".publicKeys = systems;
+  "filebrowser.age".publicKeys = systems;
 }

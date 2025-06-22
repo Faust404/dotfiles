@@ -1,0 +1,11 @@
+services:
+  filebrowser:
+    image: gtstef/filebrowser
+    environment:
+      FILEBROWSER_CONFIG: "config.yaml"
+      FILEBROWSER_ADMIN_PASSWORD: admin
+    volumes:
+      - ./config.yaml:/home/filebrowser/config.yaml
+    ports:
+      - '85:80'
+    restart: unless-stopped
