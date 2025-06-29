@@ -43,6 +43,7 @@
           ./docker/gatus/docker-compose.nix
           ./docker/homepage/docker-compose.nix
           ./docker/paperless_ngx/docker-compose.nix
+          ./docker/immich/docker-compose.nix
           ./modules/restic.nix
           ];
       };

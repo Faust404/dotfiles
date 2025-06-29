@@ -116,6 +116,11 @@
         extraConfig = "reverse_proxy localhost:8001";
       };
 
+      # Paperless-ngx
+      "immich.hreddy.in" = {
+        extraConfig = "reverse_proxy localhost:2283";
+      };
+
     };
   };
 }
