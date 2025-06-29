@@ -2,6 +2,9 @@
 
 {
 
+  # Agenix secrets
+  age.secrets.immich.file = ../../secrets/immich.age;
+
   # Containers
   virtualisation.oci-containers = {
     backend = "docker";
@@ -9,7 +12,7 @@
 
       immich_machine_learning = {
         image = "ghcr.io/immich-app/immich-machine-learning:release";
-        environmentFiles = [ "${config.users.users.faust.home}/dotfiles/docker/immich/.env" ];
+        environmentFiles = [ config.age.secrets.immich.path ];
         volumes = [
           "${config.users.users.faust.home}/docker_volumes/immich/model-cache:/cache:rw"
         ];
@@ -22,7 +25,7 @@
 
       immich_postgres = {
         image = "ghcr.io/immich-app/postgres:14-vectorchord0.4.3-pgvectors0.2.0";
-        environmentFiles = [ "${config.users.users.faust.home}/dotfiles/docker/immich/.env" ];
+        environmentFiles = [ config.age.secrets.immich.path ];
         volumes = [
           "${config.users.users.faust.home}/docker_volumes/immich/postgres:/var/lib/postgresql/data:rw"
         ];
@@ -45,11 +48,11 @@
 
       immich_server = {
         image = "ghcr.io/immich-app/immich-server:release";
-        environmentFiles = [ "${config.users.users.faust.home}/dotfiles/docker/immich/.env" ];
+        environmentFiles = [ config.age.secrets.immich.path ];
         volumes = [
           "/etc/localtime:/etc/localtime:ro"
-          "/home/faust/docker_volumes/immich/photos:/usr/src/app/upload:rw"
-          "/home/faust/photos:/usr/src/app/external/photos:rw"
+          "${config.users.users.faust.home}/docker_volumes/immich/photos:/usr/src/app/upload:rw"
+          "${config.users.users.faust.home}/photos:/usr/src/app/external/photos:rw"
         ];
         ports = [ "2283:2283/tcp" ];
         dependsOn = [

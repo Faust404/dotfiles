@@ -15,4 +15,5 @@ in
   "restic/env.age".publicKeys = systems;
   "paperless_ngx.age".publicKeys = systems;
   "filebrowser.age".publicKeys = systems;
+  "immich.age".publicKeys = systems;
 }
