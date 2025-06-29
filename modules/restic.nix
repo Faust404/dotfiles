@@ -33,6 +33,7 @@
       paths = [
         "${config.users.users.faust.home}/dotfiles"
         "${config.users.users.faust.home}/docker_volumes"
+        "${config.users.users.faust.home}/photos"
       ];
 
       pruneOpts = [
