@@ -116,11 +116,22 @@
         extraConfig = "reverse_proxy localhost:8001";
       };
 
-      # Paperless-ngx
+      # Immich
       "immich.hreddy.in" = {
         extraConfig = "reverse_proxy localhost:2283";
       };
 
+      # Syncthing
+      "syncthing.hreddy.in" = {
+        extraConfig = ''
+        forward_auth localhost:9091 {
+            uri /api/authz/forward-auth
+            copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+          }
+        reverse_proxy localhost:8384
+      '';
+      };
+      
     };
   };
 }

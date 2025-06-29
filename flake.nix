@@ -45,6 +45,7 @@
           ./docker/paperless_ngx/docker-compose.nix
           ./docker/immich/docker-compose.nix
           ./modules/restic.nix
+          ./modules/syncthing.nix
           ];
       };
 
