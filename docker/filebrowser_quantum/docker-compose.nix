@@ -20,6 +20,7 @@
           "${config.users.users.faust.home}/dotfiles/docker/filebrowser_quantum/config.yaml:/home/filebrowser/config.yaml:rw"
           "${config.users.users.faust.home}/dotfiles:/data/dotfiles"
           "${config.users.users.faust.home}/docker_volumes:/data/docker_volumes"
+          "${config.users.users.faust.home}/photos:/data/photos"
         ];
         ports = [ "8082:80/tcp" ];
         log-driver = "journald";
