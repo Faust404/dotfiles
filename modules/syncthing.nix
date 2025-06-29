@@ -18,24 +18,23 @@
         insecureAllowFrameLoading = false;
         insecureSkipHostCheck = true;
       };
-    };
 
-    # Add devices to sync with
-    devices = {
-      "windows-pc" = {
-        id = "P2EUIIV-FQKFDYR-HSNHHMW-K6YP3ON-FJIAQYJ-KJCBAAV-XHIJ5IT-TTWWVAZ";
-        introducer = false;
+      # Add devices to sync with
+      devices = {
+        "windows-pc" = {
+          id = "P2EUIIV-FQKFDYR-HSNHHMW-K6YP3ON-FJIAQYJ-KJCBAAV-XHIJ5IT-TTWWVAZ";
+          introducer = false;
+        };
+      };
+
+      # Folders to sync
+      folders = {
+        "photos" = {
+          path = "${config.users.users.faust.home}/photos";
+          devices = [ "windows-pc" ];
+          ignorePerms = false;
+        };
       };
     };
-
-    # Folders to sync
-    folders = {
-      "photos" = {
-        path = "${config.users.users.faust.home}/photos";
-        devices = [ "windows-pc" ];
-        ignorePerms = false;
-      };
-    };
-
   };
 }
