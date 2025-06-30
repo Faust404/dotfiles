@@ -8,31 +8,62 @@
       authelia = {
         image = "authelia/authelia:latest";
         ports = [ "9091:9091" ];
-        environmentFiles = [ "/home/faust/dotfiles/docker/authelia/.env" ];
+        environmentFiles = [ "${config.users.users.faust.home}/dotfiles/docker/authelia/.env" ];
         volumes = [
           "${config.users.users.faust.home}/dotfiles/docker/authelia/configuration.yml:/config/configuration.yml:rw"
-          "${config.users.users.faust.home}/dotfiles/docker/authelia/users_database.yml:/config/users_database.yml:rw"
         ];
+        dependsOn = [ "lldap" ];
         log-driver = "journald";
         extraOptions = [
           "--network-alias=authelia"
-          "--network=authelia_authelia"
+          "--network=authelia_default"
+        ];
+      };
+
+      lldap = {
+        image = "lldap/lldap:stable";
+        ports = [ 
+          "3890:3890"   # LDAP port
+          "17170:17170" # Web UI port
+        ];
+        environmentFiles = [ "${config.users.users.faust.home}/dotfiles/docker/authelia/.env" ];
+        volumes = [
+          "${config.users.users.faust.home}/docker_volumes/lldap:/data"
+        ];
+        log-driver = "journald";
+        extraOptions = [
+          "--network-alias=lldap"
+          "--network=authelia_default"
         ];
       };
 
     };
   };
 
+  # Create necessary directories
+  systemd.services."create-lldap-directories" = {
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+    };
+    script = ''
+      mkdir -p ${config.users.users.faust.home}/docker_volumes/lldap
+      chown -R ${toString config.users.users.faust.uid}:${toString config.users.groups.users.gid} ${config.users.users.faust.home}/docker_volumes/lldap
+    '';
+    wantedBy = [ "docker-compose-authelia-root.target" ];
+    before = [ "docker-lldap.service" ];
+  };
+
   # Networks
-  systemd.services."docker-network-authelia_authelia" = {
+  systemd.services."docker-network-authelia_default" = {
     path = [ pkgs.docker ];
     serviceConfig = {
       Type = "oneshot";
       RemainAfterExit = true;
-      ExecStop = "docker network rm -f authelia_authelia";
+      ExecStop = "docker network rm -f authelia_default";
     };
     script = ''
-      docker network inspect authelia_authelia || docker network create authelia_authelia --driver=bridge
+      docker network inspect authelia_default || docker network create authelia_default --driver=bridge
     '';
     partOf = [ "docker-compose-authelia-root.target" ];
     wantedBy = [ "docker-compose-authelia-root.target" ];

@@ -1,11 +1,22 @@
 # Miscellaneous https://www.authelia.com/configuration/miscellaneous/introduction/
-# Set also AUTHELIA_JWT_SECRET_FILE
 theme: auto
 
 # First Factor https://www.authelia.com/configuration/first-factor/file/
 authentication_backend:
-  file:
-    path: /config/users_database.yml
+  ldap:
+    url: "ldap://lldap:3890"
+    implementation: "custom"
+    timeout: "5s"
+    # start_tls: false
+    base_dn: dc=example,dc=com
+    username_attribute: uid
+    additional_users_dn: "ou=people"
+    users_filter: "(&({username_attribute}={input})(objectClass=person))"
+    additional_groups_dn: "ou=groups"
+    groups_filter: "(member={dn})"
+    group_name_attribute: cn
+    mail_attribute: mail
+    display_name_attribute: displayName
 
 # Second Factor https://www.authelia.com/configuration/second-factor/introduction/
 totp:
@@ -19,7 +30,6 @@ access_control:
     policy: 'one_factor'
 
 # https://www.authelia.com/configuration/session/redis/
-# Set also AUTHELIA_SESSION_REDIS_PASSWORD_FILE if appropriate
 session:
   cookies:
   - domain: 'hreddy.in'
@@ -28,26 +38,10 @@ session:
     expiration: '1 hour'
     inactivity: '5 minutes'
 
-# Storage https://www.authelia.com/configuration/storage/postgres/
-# Set also AUTHELIA_STORAGE_POSTGRES_PASSWORD_FILE
-# Set also AUTHELIA_STORAGE_ENCRYPTION_KEY_FILE
-
-# storage:
-#   postgres:
-#     address: 'tcp://postgres:5432'
-#     # address: 'tcp://database:5432'
-#     # address: 'tcp://0.0.0.0:5432'
-#     database: authelia
-#     username: authelia
-#     password: authelia
-#     # host: database
-#     # port: 5432
-
 storage:
   # encryption_key: SECRETREPLACE3 #Generate long string numb/letters
   local:
-    path: /db.sqlite3
-
+    path: /home/faust/docker_volumes/authelia/db.sqlite3
 
 # SMTP Notifier https://www.authelia.com/configuration/notifications/smtp/
 # Set also AUTHELIA_NOTIFIER_SMTP_PASSWORD_FILE
