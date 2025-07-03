@@ -1,0 +1,13 @@
+services:
+  neverwinter_knights_ee:
+    image: urothis/nwserver:8193.37.15
+    container_name: neverwinter_knights_server
+    restart: unless-stopped
+    ports:
+      - "5121:5121/udp"
+    volumes:
+      - $HOME/docker_volumes/nwnee:/nwn/home
+    env_file:
+      - .env
+    stdin_open: true
+    tty: true
