@@ -1,4 +1,4 @@
-{ inputs, pkgs, secretsPath, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [
     inputs.agenix.nixosModules.default
@@ -10,9 +10,6 @@
   # Make agenix available system-wide
   environment.systemPackages = [ inputs.agenix.packages.${pkgs.system}.default ];
 
-  # Pass secretsPath to other modules
-  _module.args.secretsPath = secretsPath;
-  
   # Basic home-manager setup
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
