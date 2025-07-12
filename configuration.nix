@@ -32,7 +32,7 @@
     home = "/home/faust";
     extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPFGQAikISD6rSEWeG294uu4ZVOHt1B69gqBZPcud6cE himavanth.reddy19@gmail.com"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIClBxB+moolrLLqKSCC2d0Q7f5+y+4/NZYD/3+6DYBmw eddsa-key-20250712"
     ];
   };
 
@@ -57,9 +57,9 @@
 
   # Enable SSH server
   services.openssh = {
-  	enable = true;
+    enable = true;
     settings = {
-      PasswordAuthentication = true;
+      PasswordAuthentication = false;
       PermitRootLogin = "prohibit-password";
     };
   };
