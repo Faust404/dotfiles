@@ -9,10 +9,12 @@
     # Development
     git
     vim
-    
-    # CLI utilities
-    # htop
 
+    # CLI utilities
+    eza
+    unzip
+    p7zip
+    compose2nix
   ];
 
   # Git config
@@ -25,6 +27,14 @@
       init.defaultBranch = "main";
     };
   };
+
+  # programs.bash = {
+  #   enable = true;
+  #   # bashrcExtra = builtins.readFile ./.bashrc;
+  #   initExtra = builtins.readFile ./.bashrc;
+  # };
+  # # programs.bash.initExtra =  builtins.readFile /home/faust/dotfiles/bashrc;
+  # # home.file.".bashrc".source = ./bashrc;
 
   # Example: linking an existing file
   # ".config/some-app/config".source = ./dotfiles/some-app-config;

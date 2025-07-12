@@ -1,9 +1,33 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, dockerPath, ... }:
 
 {
+  nixpkgs.hostPlatform = "aarch64-linux";
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+
+      # Prospero server specific modules
+      (dockerPath + /caddy/caddy.nix)
+      (dockerPath + /stirling_pdf/docker-compose.nix)
+      (dockerPath + /dozzle/docker-compose.nix)
+      (dockerPath + /filebrowser_quantum/docker-compose.nix)
+      (dockerPath + /pingvin_share/docker-compose.nix)
+      (dockerPath + /portainer/docker-compose.nix)
+      (dockerPath + /wallos/docker-compose.nix)
+      (dockerPath + /snippet_box/docker-compose.nix)
+      (dockerPath + /firefly/docker-compose.nix)
+      (dockerPath + /your_spotify/docker-compose.nix)
+      (dockerPath + /foundry_main/docker-compose.nix)
+      (dockerPath + /authelia/docker-compose.nix)
+      (dockerPath + /karakeep/docker-compose.nix)
+      (dockerPath + /convertx/docker-compose.nix)
+      (dockerPath + /speedtest/docker-compose.nix)
+      (dockerPath + /gatus/docker-compose.nix)
+      (dockerPath + /homepage/docker-compose.nix)
+      (dockerPath + /paperless_ngx/docker-compose.nix)
+      (dockerPath + /immich/docker-compose.nix)
+      # (dockerPath + /website_change_detection/docker-compose.nix)
+
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -12,8 +36,8 @@
 
   # Networking
   networking = {
-    hostName = "nixos";                  # Define your hostname
-    networkmanager.enable = true;        # Enable NetworkManager
+    hostName = "prospero-server";
+    networkmanager.enable = true;
     firewall.allowedTCPPorts = [80 443];
   };
 
@@ -36,15 +60,14 @@
     ];
   };
 
+  # Home manager user configuration
+  home-manager.users.faust = import ./home.nix;
+
   # System packages
   environment.systemPackages = with pkgs; [
     wget
     curl
-    eza
-    unzip
-    p7zip
     openssl
-    compose2nix
   ];
 
   # Set timeout to 30 minutes
@@ -83,7 +106,7 @@
   # Enable flakes (optional but recommended for modern NixOS usage)
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  system.stateVersion = "24.11";
+  system.stateVersion = "25.05";
 
 }
 

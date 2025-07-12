@@ -3,56 +3,53 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
     agenix.url = "github:ryantm/agenix";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    ez-configs = {
+      url = "github:ehllie/ez-configs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, agenix, home-manager, ... }@inputs:
-    let
-    system = "aarch64-linux"; # ARM 64-Bit CPU
-    pkgs = nixpkgs.legacyPackages.${system};
-    hostname = "nixos";
-    username = "faust";
+  outputs = inputs@{ flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [
+        inputs.ez-configs.flakeModule
+      ];
+      
+      systems = [ "aarch64-linux" "x86_64-linux" ];
+      
+      # Configure ez-configs
+      ezConfigs = {
+        root = ./.;
 
-    in
-    {
-      nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs system; };
-        modules = [
-          agenix.nixosModules.default
-          { environment.systemPackages = [ agenix.packages.aarch64-linux.default ]; }
-          ./configuration.nix
-          ./docker/caddy/caddy.nix
-          ./docker/stirling_pdf/docker-compose.nix
-          ./docker/dozzle/docker-compose.nix
-          ./docker/filebrowser_quantum/docker-compose.nix
-          ./docker/pingvin_share/docker-compose.nix
-          ./docker/portainer/docker-compose.nix
-          ./docker/wallos/docker-compose.nix
-          ./docker/snippet_box/docker-compose.nix
-          ./docker/firefly/docker-compose.nix
-          ./docker/your_spotify/docker-compose.nix
-          ./docker/foundry_main/docker-compose.nix
-          ./docker/authelia/docker-compose.nix
-          ./docker/karakeep/docker-compose.nix
-          ./docker/convertx/docker-compose.nix
-          ./docker/speedtest/docker-compose.nix
-          ./docker/gatus/docker-compose.nix
-          ./docker/homepage/docker-compose.nix
-          ./docker/paperless_ngx/docker-compose.nix
-          ./docker/immich/docker-compose.nix
-          ./modules/restic.nix
-          ./modules/syncthing.nix
+        nixos.configurationsDirectory = ./hosts;
+        nixos.modulesDirectory = ./modules;
+        
+        # Global arguments passed to all configurations
+        globalArgs = {
+          inherit inputs;
+          secretsPath = ./secrets;
+          dockerPath = ./docker;
+        };
+      };
+
+      perSystem = { config, self', inputs', pkgs, system, ... }: {
+        devShells.default = pkgs.mkShell {
+          buildInputs = with pkgs; [
+            nil
+            nixpkgs-fmt
+            inputs.agenix.packages.${system}.default
           ];
+        };
       };
-
-      homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [ ./home.nix ];
-      };
-
     };
+
 }

@@ -1,21 +1,24 @@
-{ config, pkgs, lib, ... }:
+{ secretsPath, config, pkgs, lib, ... }:
 
 {
 
   # configure agenix secrets
   age.secrets = {
     "restic/repo" = {
-      file = ../secrets/restic/repo.age;
+      # file = ../secrets/restic/repo.age;
+      file = secretsPath + /restic/repo.age;
       owner = "root";
       mode = "600";
     };
     "restic/password" = {
-      file = ../secrets/restic/password.age;
+      # file = ../secrets/restic/password.age;
+      file = secretsPath + /restic/password.age;
       owner = "root";
       mode = "600";
     };
     "restic/env" = {
-      file = ../secrets/restic/env.age;
+      # file = ../secrets/restic/env.age;
+      file = secretsPath + /restic/env.age;
       owner = "root";
       mode = "600";
     };
