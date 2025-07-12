@@ -1,0 +1,14 @@
+{
+    "none": {
+        "label": "No proxy - Direct"
+    },
+    "usa-1": {
+        "label": "BrightData USA",
+        "url": "http://lum-customer-uuuuuuuu-zone-data_center-country-us:ppppppp@zproxy.lum-superproxy.io:22225/"
+    },
+    "usa-2": {
+        "label": "BrightData USA (5 minute recheck limit)",
+        "url": "http://lum-customer-uuuuuuuu-zone-data_center-country-us:ppppppp@zproxy.lum-superproxy.io:22225/",
+        "reuse_time_minimum": 300
+    }
+}
