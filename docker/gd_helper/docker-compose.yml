@@ -1,0 +1,7 @@
+services:
+  gd-helper:
+    image: index.docker.io/himavanth19/gd-helper
+    container_name: gd-helper
+    ports:
+      - "5002:5000"
+    restart: always
