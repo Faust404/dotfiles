@@ -121,6 +121,11 @@
         extraConfig = "reverse_proxy localhost:2283";
       };
 
+      # GD Resistance Optimizer
+      "gdhelper.hreddy.in" = {
+        extraConfig = "reverse_proxy localhost:5002";
+      };
+
       # Syncthing
       "syncthing.hreddy.in" = {
         extraConfig = ''
