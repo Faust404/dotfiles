@@ -26,6 +26,7 @@
       (dockerPath + /homepage/docker-compose.nix)
       (dockerPath + /paperless_ngx/docker-compose.nix)
       (dockerPath + /immich/docker-compose.nix)
+      (dockerPath + /gd_helper/docker-compose.nix)
       # (dockerPath + /website_change_detection/docker-compose.nix)
 
     ];
@@ -82,7 +83,7 @@
   services.openssh = {
     enable = true;
     settings = {
-      PasswordAuthentication = false;
+      PasswordAuthentication = true;
       PermitRootLogin = "prohibit-password";
     };
   };
@@ -90,11 +91,6 @@
   # Docker Settings
   virtualisation.docker = {
     enable = true;
-    # Use docker without Root access (Rootless docker)
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
   };
 
   # Automatic cleanup
