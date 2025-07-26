@@ -1,6 +1,6 @@
 services:
   gd-helper:
-    image: index.docker.io/himavanth19/gd-helper
+    image: index.docker.io/himavanth19/gd-helper:latest
     container_name: gd-helper
     ports:
       - "5002:5000"

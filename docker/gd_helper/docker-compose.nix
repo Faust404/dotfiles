@@ -1,4 +1,3 @@
-# Auto-generated using compose2nix v0.3.1.
 { pkgs, lib, ... }:
 
 {
@@ -7,7 +6,7 @@
     backend = "docker";
     containers = {
       gd-helper = {
-        image = "index.docker.io/himavanth19/gd-helper";
+        image = "index.docker.io/himavanth19/gd-helper:latest";
         ports = [ "5002:5000/tcp" ];
         log-driver = "journald";
       };
