@@ -63,9 +63,16 @@
       hm = "home-manager switch";
       
       # Docker aliases
-      d = "docker";
-      dc = "docker-compose";
-      dps = "docker ps";
+      docker = "sudo docker";
+      dps = "docker ps -a";
+      drm = "docker rm -f";
+      dimg = "docker images";
+      drmi = "docker rmi";
+      dlog = "docker logs -f";
+      dexec = "docker exec -it";
+      dprune = "docker system prune -af --volumes";
+      dclean = "docker container prune -f && docker image prune -f && docker network prune -f && docker volume prune -f";
+      dtop = "docker stats -all";
 
       # Misc
       grep = "grep --color=auto";
