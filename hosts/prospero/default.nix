@@ -27,6 +27,7 @@
       (dockerPath + /paperless_ngx/docker-compose.nix)
       (dockerPath + /immich/docker-compose.nix)
       (dockerPath + /gd_helper/docker-compose.nix)
+      (dockerPath + /watchtower/docker-compose.nix)
       # (dockerPath + /website_change_detection/docker-compose.nix)
 
     ];
