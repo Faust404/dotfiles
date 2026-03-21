@@ -32,6 +32,16 @@
     piper  # GUI for mouse/keyboard config
   ];
 
+  # SSH Config
+  programs.ssh = {
+    enable = true;
+    enableDefaultConfig = true;  # Explicitly keep the default Host * settings
+    matchBlocks."github.com" = {
+      identityFile = "~/.ssh/nostramo_github_key";
+    };
+  };
+  services.ssh-agent.enable = true;  # Auto-starts, loads ~/.ssh/* on login
+
   # VS Code config
   programs.vscode = {
     enable = true;
