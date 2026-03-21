@@ -26,6 +26,7 @@
     spotify
     woeusb-ng
     google-chrome
+    zapzap
   ];
 
   # VS Code config
