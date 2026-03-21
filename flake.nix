@@ -3,6 +3,9 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    poetry2nix.url = "github:nix-community/poetry2nix";
+    flake-utils.url = "github:numtide/flake-utils";
+
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -47,7 +50,20 @@
             nil
             nixpkgs-fmt
             inputs.agenix.packages.${system}.default
+
+            # Python 3.10 and Poetry
+            python310
+            poetry
+            stdenv.cc.cc.lib # Ensures libstdc++.so.6 is available
           ];
+
+          shellHook = ''
+            # Ensure Poetry uses the correct Python version from Nix
+            poetry env use $(which python) 2>/dev/null || true
+            echo "Python version: $(python --version)"
+            echo "Poetry available: $(poetry --version)"
+          '';
+
         };
       };
     };
