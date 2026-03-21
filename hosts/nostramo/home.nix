@@ -155,7 +155,7 @@
         "network.dns.http3_echconfig.enabled" = true;
 
         # Tracking
-        "browser.contentblocking.category" = "strict";
+        "browser.contentblocking.category" = "standard";
         "privacy.trackingprotection.enabled" = true;
         "privacy.trackingprotection.pbmode.enabled" = true;
         "privacy.trackingprotection.emailtracking.enabled" = true;
@@ -168,7 +168,7 @@
         "privacy.resistFingerprinting" = true;
         "privacy.resistFingerprinting.pbmode" = true;
 
-        "privacy.firstparty.isolate" = true;
+        "privacy.firstparty.isolate" = false;
 
         # URL query tracking
         "privacy.query_stripping.enabled" = true;
