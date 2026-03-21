@@ -10,6 +10,9 @@
     git
     vim
 
+    # Packages
+    comma
+
     # CLI utilities
     eza
     unzip
