@@ -23,6 +23,11 @@
     zathura
     libreoffice
     vesktop
+    # steam
+    spotify
+    syncthing
+    woeusb-ng
+    google-chrome
   ];
 
   # VS Code config
@@ -191,9 +196,19 @@
     };
   };
 
+  # home.persistence."/persist/home/himavanth" = {
+  #   directories = [
+  #     ".cache/mozilla/firefox"
+  #     ".mozilla/firefox"
+  #   ];
+  #   allowOther = true;
+  # };
+
+
   home.stateVersion = "25.05";
 
   # Let Home Manager install and manage itself
   programs.home-manager.enable = true;
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
