@@ -45,6 +45,9 @@
         "editor.rulers" = [ 80 120 ];
         "editor.renderWhitespace" = "boundary";  # Show whitespace at word boundaries
         "editor.wordWrap" = "off";  # Disable word wrapping to see the rulers better
+        "editor.tabSize" = 2;
+        "editor.insertSpaces" = true;
+        "editor.detectIndentation" = false;
       };
 
       extensions = with pkgs.vscode-extensions; [
