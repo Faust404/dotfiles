@@ -5,6 +5,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./syncthing.nix
     ];
 
   # Bootloader.
@@ -109,11 +110,6 @@
   };
 
   programs.steam.enable = true;
-
-  services.syncthing = {
-    enable = true;
-    openDefaultPorts = true;
-  };
 
   # Enable OpenGL
   hardware.graphics = {

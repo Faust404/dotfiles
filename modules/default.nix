@@ -3,8 +3,7 @@
   imports = [
     inputs.agenix.nixosModules.default
     inputs.home-manager.nixosModules.home-manager
-    ./restic.nix
-    ./syncthing.nix
+    # ./restic.nix
   ];
   
   # Make agenix available system-wide
