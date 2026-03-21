@@ -109,6 +109,7 @@
     };
   };
 
+  services.ratbagd.enable = true;
   programs.steam.enable = true;
 
   # Enable OpenGL

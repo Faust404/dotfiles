@@ -26,7 +26,10 @@
     spotify
     woeusb-ng
     google-chrome
-    zapzap
+    zapzap # Desktop whatsapp
+
+    # Peripheral
+    piper  # GUI for mouse/keyboard config
   ];
 
   # VS Code config
