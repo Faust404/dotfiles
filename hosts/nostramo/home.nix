@@ -76,12 +76,14 @@
   # Git config
   programs.git = {
     enable = true;
-    userName = "Faust404";
-    userEmail = "himavanth.reddy19@gmail.com";
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Faust404";
+        email = "himavanth.reddy19@gmail.com";
+      };
       credential.helper = "oauth";
       init.defaultBranch = "main";
-    };
+    }
   };
 
   # Firefox config

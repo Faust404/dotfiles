@@ -16,7 +16,6 @@
   networking = {
     hostName = "nostramo-laptop";
     networkmanager.enable = true;
-    wireless.enable = false;
   };
 
   # Set timeout to 30 minutes
