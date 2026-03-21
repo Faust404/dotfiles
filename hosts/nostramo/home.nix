@@ -23,9 +23,7 @@
     zathura
     libreoffice
     vesktop
-    # steam
     spotify
-    syncthing
     woeusb-ng
     google-chrome
   ];

@@ -99,6 +99,13 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
+  programs.steam.enable = true;
+
+  services.syncthing = {
+    enable = true;
+    openDefaultPorts = true;
+  };
+
   # Enable OpenGL
   hardware.graphics = {
     enable = true;
