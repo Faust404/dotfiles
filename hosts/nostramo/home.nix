@@ -83,7 +83,7 @@
       };
       credential.helper = "oauth";
       init.defaultBranch = "main";
-    }
+    };
   };
 
   # Firefox config
