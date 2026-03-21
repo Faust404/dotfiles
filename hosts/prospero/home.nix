@@ -28,6 +28,7 @@
     extraConfig = {
       credential.helper = "oauth";
       init.defaultBranch = "main";
+      core.editor = "vim";
     };
   };
 
